@@ -1,0 +1,18 @@
+.auto-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+	gap: 20px;
+}
+
+@media (max-width: 800px) {
+	.auto-wrapper {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 500px) {
+	.auto-wrapper {
+		grid-template-columns: 1fr;
+	}
+}

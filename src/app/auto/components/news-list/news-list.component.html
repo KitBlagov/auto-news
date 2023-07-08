@@ -1,0 +1,25 @@
+<!-- <a class="auto">
+	<h2 class="auto__title">Ограниченная линейка Porsche 911 Carrera GTS Le Mans Centenaire Edition</h2>
+	<p class="auto__description">Пока мир ожидает дебюта обновленной линейки 992, компания Porsche представила специальную серию для Франции</p>
+	<time class="auto__date"></time>
+	<div class="auto__catagory">Автомобильные новости</div>
+	<div class="auto__img-wrapper">
+		<img src="https://file.autodoc.ru/news/avto-novosti/2670944972_1.jpg" alt="" class="auto__img">
+	</div>
+</a> -->
+
+<div class="auto-wrapper">
+
+	<ng-container *ngIf="autoList$ | async as autoNewsList">
+		<ng-container *ngFor="let autoNewsListItem of autoNewsList">
+			
+			<auto-auto-mini
+				[auto]="autoNewsListItem"
+				[routerLink]="['auto', autoNewsListItem.url]"
+			>
+			</auto-auto-mini>
+
+		</ng-container>
+	</ng-container>
+
+</div> <!-- .auto-wrapper -->

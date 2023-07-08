@@ -1,0 +1,21 @@
+<ng-container *ngIf="auto">
+	
+	<div class="auto">
+		<h2 class="auto__title">
+			{{ auto.title }}
+		</h2>
+		<p class="auto__description">
+			{{ auto.description }}
+		</p>
+		<time class="auto__date">
+			{{ auto.publishedDate }}
+		</time>
+		<div class="auto__category">
+			{{ auto.categoryType }}
+		</div>
+		<div class="auto__img-wrapper">
+			<img [src]="auto.titleImageUrl" alt="" class="auto__img">
+		</div>
+	</div>
+
+</ng-container>
