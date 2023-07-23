@@ -4,6 +4,11 @@
 	box-sizing: inherit;
 }
 
+:root {
+	// --backgroundUrl: url(https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg);
+	--backgroundUrl: '';
+}
+
 html {
 	box-sizing: border-box;
 }

@@ -8,13 +8,17 @@
 			{{ auto.description }}
 		</p>
 		<time class="auto__date">
-			{{ auto.publishedDate }}
+			{{ auto.publishedDate | date }}
 		</time>
 		<div class="auto__category">
 			{{ auto.categoryType }}
 		</div>
 		<div class="auto__img-wrapper">
-			<img [src]="auto.titleImageUrl" alt="" class="auto__img">
+			<img
+				[src]="auto.titleImageUrl"
+				alt=""
+				class="auto__img"
+			>
 		</div>
 	</div>
 

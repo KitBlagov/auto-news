@@ -1,2 +1,27 @@
-<h1>lorem</h1>
-<h2>lorem 2</h2>
+<ng-container *ngIf="autoNewsItem$ | async as autoNewsItem">
+
+	<div class="auto-full">
+
+		<h1 class="auto-full__title">
+			{{ autoNewsItem.title }}
+		</h1>
+		<time class="auto-full__date">
+			{{ autoNewsItem.publishedDate | date }}
+		</time>
+		<div class="auto-full__img-wrapper">
+			<img
+				class="auto-full__img"
+				[src]="autoNewsItem.titleImageUrl"
+				alt=""
+			>
+		</div>
+		<div
+			[innerHTML]="autoNewsItem.text | html"
+			class="auto-full__description"
+		>
+
+		</div>
+
+	</div> <!-- .auto-full -->
+
+</ng-container>
