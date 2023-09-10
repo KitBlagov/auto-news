@@ -7,7 +7,7 @@ import { AutoFullComponent } from './components/auto-full/auto-full.component';
 const routes: Routes = [
 	{ path: '', component: PageMainComponent, children: [
 		{ path: '', pathMatch: 'full', component: NewsListComponent },
-		{ path: 'auto/:id', pathMatch: 'full', component: AutoFullComponent  }
+		{ path: ':id', pathMatch: 'full', component: AutoFullComponent  }
 	] }
 ]; 
 

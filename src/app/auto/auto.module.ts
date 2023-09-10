@@ -6,6 +6,7 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 import { AutoFullComponent } from './components/auto-full/auto-full.component';
 import { AutoMiniComponent } from './components/auto-mini/auto-mini.component';
 import { HtmlPipe } from './pipes/html.pipe';
+import { BreadCrumbsComponent } from './components/bread-crumbs/bread-crumbs.component';
 
 @NgModule({
   declarations: [
@@ -13,11 +14,12 @@ import { HtmlPipe } from './pipes/html.pipe';
     NewsListComponent,
     AutoFullComponent,
     AutoMiniComponent,
-		HtmlPipe
+		HtmlPipe,
+  	BreadCrumbsComponent
   ],
   imports: [
     CommonModule,
-		AutoRoutingModule
+		AutoRoutingModule,
   ]
 })
 export class AutoModule { }

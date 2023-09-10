@@ -11,7 +11,7 @@ import { AutoNewsItem } from '../../interfaces/interfaces';
 })
 export class AutoFullComponent implements OnInit  {
 
-	private miniUrl: string = this.route.snapshot.paramMap.get('id')!;
+	private miniUrl: string = this.route.snapshot.paramMap.get('url')!;
 	public autoNewsItem$: Observable<AutoNewsItem> = this.autoHttpService.getAutoNewsItem(this.miniUrl);
 	
 	constructor(
