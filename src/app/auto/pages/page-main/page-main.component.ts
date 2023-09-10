@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-main.component.scss']
 })
 export class PageMainComponent {
+	color: string = 'red';
 }
