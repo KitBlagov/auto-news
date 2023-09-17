@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListAutoNewsItem } from '../../interfaces/interfaces';
 import { AutoService } from '../../services/auto.service';
@@ -8,8 +8,16 @@ import { AutoService } from '../../services/auto.service';
   templateUrl: './news-list.component.html',
   styleUrls: ['./news-list.component.scss']
 })
-export class NewsListComponent implements OnInit {
+export class NewsListComponent implements OnInit, OnChanges {
 	public autoList$: Observable<ListAutoNewsItem[]> = this.autoService.autoList$;
+	private _scrollPercent!: number;
+	public set scrollPercent(value: number) {
+		this._scrollPercent = value;
+		console.log(this._scrollPercent);
+	};
+	public get scrollPercent(): number {
+		return this._scrollPercent;
+	}
 
 	constructor(
 		private autoService: AutoService
@@ -18,5 +26,10 @@ export class NewsListComponent implements OnInit {
 	ngOnInit(): void {
 		this.autoService.getFirstPage(10).subscribe();
 		// this.autoList$.subscribe(console.log);
+	}
+
+	ngOnChanges(): void {
+		console.log(this.scrollPercent);
+
 	}
 }

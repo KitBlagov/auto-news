@@ -8,18 +8,56 @@
 	</div>
 </a> -->
 
-<div class="auto-wrapper">
+<div class="auto-wrapper" scrolled [scrollPercent]="scrollPercent">
+
+	{{ scrollPercent }}
 
 	<ng-container *ngIf="autoList$ | async as autoNewsList">
 		<ng-container *ngFor="let autoNewsListItem of autoNewsList">
-			
-			<auto-auto-mini
-				[auto]="autoNewsListItem"
-				[routerLink]="['auto', autoNewsListItem]"
-			>
+
+			<auto-auto-mini [auto]="autoNewsListItem" [routerLink]="['auto', autoNewsListItem]">
 			</auto-auto-mini>
 
 		</ng-container>
 	</ng-container>
 
 </div> <!-- .auto-wrapper -->
+
+
+
+<!-- Для того чтобы иметь доступ к переменной через html, можно добавить в директиву атрибут, который будет принимать значение процента прокрутки.
+
+Вот пример реализации:
+
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+
+@Directive({
+  selector: '[scrollPercent]'
+})
+export class ScrollPercentDirective {
+  @Input() scrollPercent: number;
+
+  constructor(private el: ElementRef) { }
+
+  @HostListener('scroll')
+  onScroll() {
+    const domNode = this.el.nativeElement;
+    const scrollHeight = domNode.scrollHeight;
+    const clientHeight = domNode.clientHeight;
+    const scrollTop = domNode.scrollTop;
+    const maxScrollTop = scrollHeight - clientHeight;
+    const percent = scrollTop / maxScrollTop;
+
+    this.scrollPercent = percent;
+  }
+}
+
+Затем, чтобы использовать эту директиву на элементе и получить значение процента прокрутки, нужно добавить атрибут "scrollPercent" и связать его с переменной в компоненте:
+
+<div scrollPercent [scrollPercent]="myScrollPercent">Some content here</div>
+
+В компоненте нужно объявить переменную "myScrollPercent" и присвоить ей значение по умолчанию:
+
+myScrollPercent = 0;
+
+При прокрутке элемента значение переменной "myScrollPercent" будет обновляться автоматически. -->
