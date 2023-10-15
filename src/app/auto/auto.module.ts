@@ -7,7 +7,7 @@ import { AutoFullComponent } from './components/auto-full/auto-full.component';
 import { AutoMiniComponent } from './components/auto-mini/auto-mini.component';
 import { HtmlPipe } from './pipes/html.pipe';
 import { BreadCrumbsComponent } from './components/bread-crumbs/bread-crumbs.component';
-import { ScrollPercentDirective } from './directives/scroll-percent.directive';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
 	declarations: [
@@ -17,7 +17,7 @@ import { ScrollPercentDirective } from './directives/scroll-percent.directive';
 		AutoMiniComponent,
 		HtmlPipe,
 		BreadCrumbsComponent,
-		ScrollPercentDirective
+		SpinnerComponent
 	],
 	imports: [
 		CommonModule,

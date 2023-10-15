@@ -42,3 +42,6 @@ document.addEventListener('scroll', () => {
 
     console.log(percent);
 });
+
+
+Изменить директиву по ангуляровски на слушатель событий
