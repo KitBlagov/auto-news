@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { Observable, filter, switchMap, tap, delay, delayWhen, of, takeWhile } from 'rxjs';
+import { Observable, filter, switchMap, tap, delay, delayWhen, of, takeWhile, debounceTime } from 'rxjs';
 import { ListAutoNewsItem } from '../../interfaces/interfaces';
 import { AutoService } from '../../services/auto.service';
 import { ScrollPercentService } from '../../services/scroll-percent.service';
@@ -22,6 +22,7 @@ export class NewsListComponent implements OnInit, OnChanges {
 		filter(() => !this.isLoading),
 		// takeWhile(() => !this.isLoading),
 		// delay(1000)
+		debounceTime(200),
 		switchMap(scrollPercent => {
 			this.isLoading = true;
 			return this.autoService.getNextPage();

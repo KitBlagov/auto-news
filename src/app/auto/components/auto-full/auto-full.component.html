@@ -1,4 +1,6 @@
-<ng-container *ngIf="autoNewsItem$ | async as autoNewsItem">
+<ng-container
+	*ngIf="autoNewsItem$ | async as autoNewsItem; else loaded"
+>
 
 	<div class="auto-full">
 
@@ -25,3 +27,7 @@
 	</div> <!-- .auto-full -->
 
 </ng-container>
+
+<ng-template #loaded>
+	<app-spinner></app-spinner>
+</ng-template>
