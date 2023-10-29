@@ -8,6 +8,9 @@ import { AutoMiniComponent } from './components/auto-mini/auto-mini.component';
 import { HtmlPipe } from './pipes/html.pipe';
 import { BreadCrumbsComponent } from './components/bread-crumbs/bread-crumbs.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { TUI_SANITIZER } from "@taiga-ui/core";
+import { TuiButtonModule } from '@taiga-ui/core';
+import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 
 @NgModule({
 	declarations: [
@@ -22,6 +25,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 	imports: [
 		CommonModule,
 		AutoRoutingModule,
-	]
+		TuiButtonModule,
+	],
+	providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
 })
 export class AutoModule { }
